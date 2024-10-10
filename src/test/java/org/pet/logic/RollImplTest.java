@@ -20,9 +20,10 @@ class RollImplTest {
     @Mock
     PointsModel model;
 
-    @ParameterizedTest(name = "User with {0} pts roll {1} and then have +5 or -5 pts ")
+    @ParameterizedTest(name = "User with {0} pts roll {1} and then have {2} or {3} pts ")
     @CsvSource({
-            "20, 5, 15, 25"
+            "20, 5, 15, 25",
+            "1000, 1000, 2000, 0"
     })
     void roll(int startPts, int rollPts, int expectedResult1, int expectedResult2) {
         ArgumentCaptor<Integer> argument = ArgumentCaptor.forClass(Integer.class);
