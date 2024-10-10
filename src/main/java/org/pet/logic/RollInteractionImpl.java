@@ -3,10 +3,10 @@ import org.pet.dal.PointsModel;
 
 import java.util.Random;
 
-public class RollImpl implements RollInteraction {
+public class RollInteractionImpl implements RollInteraction {
     private final PointsModel model;
 
-    public RollImpl(PointsModel model) {
+    public RollInteractionImpl(PointsModel model) {
         this.model = model;
     }
 
