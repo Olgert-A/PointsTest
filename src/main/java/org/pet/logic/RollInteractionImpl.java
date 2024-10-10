@@ -25,8 +25,8 @@ public class RollInteractionImpl implements RollInteraction {
         int[] rollSigns = new int[] {-1, 1};
         int randomIndex = new Random().nextInt(rollSigns.length);
         int rollSign = rollSigns[randomIndex];
-        int rollResultPoints = rollSign * userPoints;
+        int rollResultPoints = rollSign * pointsToRoll;
 
-        this.model.SetPoints(userID, rollResultPoints);
+        this.model.SetPoints(userID, userPoints + rollResultPoints);
     }
 }
