@@ -1,12 +1,12 @@
-package org.pet.logic;
+package org.pet.interaction;
 import org.pet.dal.PointsModel;
 
 import java.util.Random;
 
-public class RollInteractionImpl implements RollInteraction {
+public class RollImpl implements Roll {
     private final PointsModel model;
 
-    public RollInteractionImpl(PointsModel model) {
+    public RollImpl(PointsModel model) {
         this.model = model;
     }
 

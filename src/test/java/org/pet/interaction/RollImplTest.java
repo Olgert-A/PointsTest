@@ -1,4 +1,4 @@
-package org.pet.logic;
+package org.pet.interaction;
 
 
 import org.mockito.Mock;
@@ -31,7 +31,7 @@ class RollImplTest {
 
         Mockito.when(model.GetPoints(anyInt())).thenReturn(startPts);
 
-        RollInteractionImpl interaction = new RollInteractionImpl(model);
+        RollImpl interaction = new RollImpl(model);
         interaction.roll(anyInt(), rollPts);
 
         Mockito.verify(model).GetPoints(anyInt());
