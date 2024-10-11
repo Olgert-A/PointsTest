@@ -3,10 +3,10 @@ import org.pet.dal.PointsModel;
 
 import java.util.Random;
 
-public class RollImpl implements Roll {
+public class RollInteractionImpl implements RollInteraction {
     private final PointsModel model;
 
-    public RollImpl(PointsModel model) {
+    public RollInteractionImpl(PointsModel model) {
         this.model = model;
     }
 
@@ -19,8 +19,8 @@ public class RollImpl implements Roll {
 
         if (pointsToRoll > userPoints)
             throw new IllegalArgumentException("User points less then points to roll, " +
-                                               "UserPoints = " + userPoints +
-                                               " Points to roll = " + pointsToRoll);
+                    "UserPoints = " + userPoints +
+                    " Points to roll = " + pointsToRoll);
 
         int[] rollSigns = new int[] {-1, 1};
         int randomIndex = new Random().nextInt(rollSigns.length);

@@ -16,7 +16,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 
 @ExtendWith(MockitoExtension.class)
-class RollImplTest {
+class RollInteractionImplTest {
     @Mock
     PointsModel model;
 
@@ -30,8 +30,8 @@ class RollImplTest {
         var expectedResult = new Integer[] {expectedResult1, expectedResult2};
 
         Mockito.when(model.GetPoints(anyInt())).thenReturn(startPts);
-
-        RollImpl interaction = new RollImpl(model);
+        
+        RollInteractionImpl interaction = new RollInteractionImpl(model);
         interaction.roll(anyInt(), rollPts);
 
         Mockito.verify(model).GetPoints(anyInt());

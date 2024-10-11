@@ -1,5 +1,5 @@
 package org.pet.interaction;
 
-public interface Roll {
+public interface RollInteraction {
     void roll(int userID, int pointsToRoll) throws IllegalArgumentException;
 }
