@@ -1,6 +1,7 @@
 package org.points.interaction;
 
 
+import org.junit.jupiter.api.BeforeAll;
 import org.mockito.Mock;
 import org.points.dal.PointsModel;
 import java.util.Arrays;
@@ -27,7 +28,7 @@ class RollInteractionImplTest {
             "20, 5, 15, 25",
             "1000, 1000, 2000, 0"
     })
-    void roll(int startPts, int rollPts, int expectedResult1, int expectedResult2) {
+    void rollValidData(int startPts, int rollPts, int expectedResult1, int expectedResult2) {
         ArgumentCaptor<Integer> argument = ArgumentCaptor.forClass(Integer.class);
         var expectedResult = new Integer[] {expectedResult1, expectedResult2};
 
@@ -40,5 +41,18 @@ class RollInteractionImplTest {
         Mockito.verify(model).getPoints(anyInt());
         Mockito.verify(model).setPoints(anyInt(), argument.capture());
         assertTrue(Arrays.asList(expectedResult).contains(argument.getValue()));
+    }
+
+    @ParameterizedTest(name = "User with {0} pts can't roll {1} pts ")
+    @CsvSource({
+            "10, 35",
+            "1234, 5678"
+    })
+    void rollInvalidData(int startPts, int rollPts) {
+        Mockito.when(model.getPoints(anyInt())).thenReturn(startPts);
+
+        RollValidator validator = new RollValidatorImpl();
+        RollInteractionImpl interaction = new RollInteractionImpl(model, validator);
+        assertThrows(IllegalArgumentException.class, () -> {interaction.roll(1, rollPts);});
     }
 }
