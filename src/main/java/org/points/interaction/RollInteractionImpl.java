@@ -15,17 +15,17 @@ public class RollInteractionImpl implements RollInteraction {
 
     @Override
     public void roll(int userID, int pointsToRoll) throws IllegalArgumentException {
-        validator.CheckUserValid(userID);
-        validator.CheckPointsValid(pointsToRoll);
+        validator.checkUserValid(userID);
+        validator.checkPointsValid(pointsToRoll);
 
-        int userPoints = this.model.GetPoints(userID);
-        validator.CheckUserCanRollPoints(userPoints, pointsToRoll);
+        int userPoints = this.model.getPoints(userID);
+        validator.checkUserCanRollPoints(userPoints, pointsToRoll);
 
         int[] rollSigns = new int[] {-1, 1};
         int randomIndex = new Random().nextInt(rollSigns.length);
         int rollSign = rollSigns[randomIndex];
         int rollResultPoints = rollSign * pointsToRoll;
 
-        this.model.SetPoints(userID, userPoints + rollResultPoints);
+        this.model.setPoints(userID, userPoints + rollResultPoints);
     }
 }

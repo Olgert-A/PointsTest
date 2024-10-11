@@ -31,14 +31,14 @@ class RollInteractionImplTest {
         ArgumentCaptor<Integer> argument = ArgumentCaptor.forClass(Integer.class);
         var expectedResult = new Integer[] {expectedResult1, expectedResult2};
 
-        Mockito.when(model.GetPoints(anyInt())).thenReturn(startPts);
+        Mockito.when(model.getPoints(anyInt())).thenReturn(startPts);
 
         RollValidator validator = new RollValidatorImpl();
         RollInteractionImpl interaction = new RollInteractionImpl(model, validator);
         interaction.roll(anyInt(), rollPts);
 
-        Mockito.verify(model).GetPoints(anyInt());
-        Mockito.verify(model).SetPoints(anyInt(), argument.capture());
+        Mockito.verify(model).getPoints(anyInt());
+        Mockito.verify(model).setPoints(anyInt(), argument.capture());
         assertTrue(Arrays.asList(expectedResult).contains(argument.getValue()));
     }
 }

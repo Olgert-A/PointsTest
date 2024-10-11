@@ -1,8 +1,8 @@
 package org.points.dal;
 
 public interface PointsModel {
-    void AddUser(int userId, int points);
-    void DeleteUser(int userId);
-    void SetPoints(int userId, int points);
-    int GetPoints(int userId);
+    void addUser(int userId, int points);
+    void deleteUser(int userId);
+    void setPoints(int userId, int points);
+    int getPoints(int userId);
 }

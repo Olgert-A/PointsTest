@@ -1,8 +1,8 @@
 package org.points.validator;
 
 public interface RollValidator {
-    void CheckUserValid(int userID) throws IllegalArgumentException;
-    void CheckPointsValid(int points) throws IllegalArgumentException;
-    void CheckUserCanRollPoints(int userPoints, int pointsToRoll) throws IllegalArgumentException;
+    void checkUserValid(int userID) throws IllegalArgumentException;
+    void checkPointsValid(int points) throws IllegalArgumentException;
+    void checkUserCanRollPoints(int userPoints, int pointsToRoll) throws IllegalArgumentException;
 }
 
