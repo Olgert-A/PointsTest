@@ -1,5 +1,5 @@
-package org.pet.interaction;
-import org.pet.dal.PointsModel;
+package org.points.interaction;
+import org.points.dal.PointsModel;
 
 import java.util.Random;
 

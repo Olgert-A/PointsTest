@@ -1,8 +1,8 @@
-package org.pet.interaction;
+package org.points.interaction;
 
 
 import org.mockito.Mock;
-import org.pet.dal.PointsModel;
+import org.points.dal.PointsModel;
 import java.util.Arrays;
 
 import static org.mockito.ArgumentMatchers.anyInt;

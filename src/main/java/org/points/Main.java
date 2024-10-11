@@ -1,4 +1,4 @@
-package org.pet;
+package org.points;
 
 public class Main {
     public static void main(String[] args) {

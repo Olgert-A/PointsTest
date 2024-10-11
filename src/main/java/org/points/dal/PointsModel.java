@@ -1,4 +1,4 @@
-package org.pet.dal;
+package org.points.dal;
 
 public interface PointsModel {
     void AddUser(int userId, int points);
