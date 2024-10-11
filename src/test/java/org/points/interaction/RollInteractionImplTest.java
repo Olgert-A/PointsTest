@@ -13,6 +13,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.points.validator.RollValidator;
+import org.points.validator.RollValidatorImpl;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -30,8 +32,9 @@ class RollInteractionImplTest {
         var expectedResult = new Integer[] {expectedResult1, expectedResult2};
 
         Mockito.when(model.GetPoints(anyInt())).thenReturn(startPts);
-        
-        RollInteractionImpl interaction = new RollInteractionImpl(model);
+
+        RollValidator validator = new RollValidatorImpl();
+        RollInteractionImpl interaction = new RollInteractionImpl(model, validator);
         interaction.roll(anyInt(), rollPts);
 
         Mockito.verify(model).GetPoints(anyInt());
