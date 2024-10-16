@@ -6,7 +6,7 @@
 В проекте реализовано взаимодействие Рулетка, которое позволяет Пользователю поставить баллы и случайным образом их удвоить либо потратить.
 ```
 public interface RollInteraction {
-    void roll(int userID, int pointsToRoll) throws IllegalArgumentException;
+    void roll(int userID, int pointsToRoll);
 }
 ```
 Его имплементация *RollInteractionImpl* получает количество баллов пользователя из модели хранения, проверяет возможность сделать указанную ставку, затем записывает результат обратно в модель хранения.
@@ -14,9 +14,9 @@ public interface RollInteraction {
 Возможность сделать ставку проверяется валидатором, который инъектируется в *RollInteractionImpl*
 ```
 public interface RollValidator {
-    void CheckUserValid(int userID) throws IllegalArgumentException;
-    void CheckPointsValid(int points) throws IllegalArgumentException;
-    void CheckUserCanRollPoints(int userPoints, int pointsToRoll) throws IllegalArgumentException;
+    void CheckUserValid(int userID);
+    void CheckPointsValid(int points);
+    void CheckUserCanRollPoints(int userPoints, int pointsToRoll);
 }
 ```
 Хранение данных описано моделью, которая инъектируется в *RollInteractionImpl*
