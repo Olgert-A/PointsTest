@@ -22,7 +22,7 @@ public class RollInteractionImpl implements RollInteraction {
     }
 
     @Override
-    public void roll(int userID, int pointsToRoll) throws IllegalArgumentException {
+    public void roll(int userID, int pointsToRoll) {
         validator.checkUserValid(userID);
         validator.checkPointsValid(pointsToRoll);
 
